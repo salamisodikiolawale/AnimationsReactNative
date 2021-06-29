@@ -1,8 +1,8 @@
 import React from 'react';
-import AnimationOpacity from './Animation_Opacity';
+import AnimationOpacityFonctionComponent from './Animation_Opacity_fonctionComponent';
 
 export default function App() {
   return (
-    <AnimationOpacity />
+    <AnimationOpacityFonctionComponent />
   );
 }
