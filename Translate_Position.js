@@ -1,32 +1,33 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Animated , TouchableWithoutFeedback} from 'react-native';
 
-export default class Animations_Opacity extends Component {
+export default class Translate_APosition extends Component {
 
     constructor(props){
         super(props)
         this.state = {
-            animation : new Animated.Value(1) //Default value
+            animation : new Animated.Value(0)
         }
     };
 
     startAnimation = () => {
         Animated.timing(this.state.animation, {
-            toValue: 0,
-            duration: 350,
+            toValue: 300, //Nomvbre de pixels
+            duration: 1500,
             useNativeDriver: true
-        }).start(() => {
-            Animated.timing(this.state.animation, {
-                toValue: 1,
-                duration: 500,
-                useNativeDriver: true,
-            }).start();
+        }).start(()=>{
+            this.state.animation.setValue(0);
         });
     }
 
     render() {
         const animatedStyles = {
-            opacity:this.state.animation,
+            transform :[
+                {
+                    translateY : this.state.animation,
+                }
+                
+            ]
         }
         return (
             <View style={styles.container}>
